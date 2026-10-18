@@ -55,7 +55,6 @@ static CircleButtonSprite* createALCircleButton() {
     if (button) {
         button->setCascadeOpacityEnabled(true);
         button->setOpacity(static_cast<GLubyte>(opacity * 255 / 100));
-        icon->setOpacity(static_cast<GLubyte>(opacity * 255 / 100));
         button->setScale(scale);
     }
     return button;
@@ -67,7 +66,7 @@ protected:
     CCNode* m_pageRoot = nullptr;
     CCMenu* m_tabMenu = nullptr;
 
-    bool init() {
+    bool init() override {
         if (!Popup::init(340.f, 250.f)) {
             return false;
         }
