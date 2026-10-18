@@ -1,4 +1,3 @@
-
 name: Build ALComplete
 
 on:
@@ -15,7 +14,6 @@ jobs:
   build:
     name: Build Android ${{ matrix.arch }}
     runs-on: ubuntu-latest
-
     strategy:
       fail-fast: false
       matrix:
@@ -39,7 +37,6 @@ jobs:
           android-min-sdk: 23
 
       - name: Upload build artifact
-        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: ALComplete-${{ matrix.arch }}
