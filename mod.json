@@ -8,18 +8,25 @@
   },
   "id": "bedrock.alcomplete.geode",
   "name": "ALComplete",
-  "version": "v0.1.1",
+  "version": "v0.2.0",
   "developer": "bedrock",
-  "description": "ALComplete: a quick-access level-completion experiment with configurable floating controls.",
+  "description": "ALComplete adds a draggable gameplay control, instant-completion action, and configurable appearance and behavior. Completion may affect local progress and does not guarantee a verified record.",
   "tags": ["gameplay", "utility", "interface", "offline"],
   "settings": {
     "appearance-title": {
       "name": "Appearance",
       "type": "title"
     },
+    "show-floating-button": {
+      "name": "Show Floating Button",
+      "description": "Show or hide the draggable in-level control.",
+      "type": "bool",
+      "default": true,
+      "category": "appearance"
+    },
     "button-opacity": {
       "name": "Button Opacity",
-      "description": "Opacity of the floating ALComplete button.",
+      "description": "Button opacity percentage, from 20 to 100.",
       "type": "int",
       "default": 85,
       "min": 20,
@@ -28,7 +35,7 @@
     },
     "button-scale": {
       "name": "Button Scale",
-      "description": "Scale of the floating ALComplete button.",
+      "description": "Button scale, from 0.5x to 1.5x.",
       "type": "float",
       "default": 0.85,
       "min": 0.5,
@@ -37,19 +44,39 @@
     },
     "button-icon": {
       "name": "Button Icon",
-      "description": "Choose the button label: AL, star, or check.",
+      "description": "Cycle choices in the popup: 0 = AL, 1 = asterisk, 2 = OK.",
       "type": "int",
       "default": 0,
       "min": 0,
       "max": 2,
       "category": "appearance"
     },
-    "show-floating-button": {
-      "name": "Show Floating Button",
-      "description": "Show or hide the floating button during a level.",
+    "button-color": {
+      "name": "Button Color",
+      "description": "Circle color preset: 0 green, 1 pink, 2 gray, 3 blue, 4 cyan, 5 dark purple, 6 dark aqua, 7 red.",
+      "type": "int",
+      "default": 0,
+      "min": 0,
+      "max": 7,
+      "category": "appearance"
+    },
+    "behavior-title": {
+      "name": "Behavior",
+      "type": "title"
+    },
+    "confirm-before-complete": {
+      "name": "Confirm Before Completing",
+      "description": "Ask for confirmation before calling the game's completion routine.",
       "type": "bool",
       "default": true,
-      "category": "appearance"
+      "category": "behavior"
+    },
+    "snap-to-edge": {
+      "name": "Snap To Edge",
+      "description": "Snap the floating control to the nearest screen edge after dragging.",
+      "type": "bool",
+      "default": true,
+      "category": "behavior"
     }
   }
 }
