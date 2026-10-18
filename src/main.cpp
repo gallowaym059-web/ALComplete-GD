@@ -46,15 +46,26 @@ class $modify(ALCompleteMenuLayer, MenuLayer) {
 
         auto winSize = CCDirector::sharedDirector()->getWinSize();
 
+        auto icon = CCSprite::createWithSpriteFrameName(
+            "GJ_optionsBtn_001.png"
+        );
+
+        if (!icon) {
+            icon = CCSprite::create();
+        }
+
+        auto buttonSprite = CircleButtonSprite::create(
+            icon,
+            CircleBaseColor::Green,
+            CircleBaseSize::Medium
+        );
+
+        if (!buttonSprite) {
+            return true;
+        }
+
         auto button = CCMenuItemSpriteExtra::create(
-            CircleButtonSprite::create(
-                CCSprite::createWithSpriteFrameName(
-                    "GJ_optionsBtn_001.png"
-                ),
-                1.f,
-                CircleBaseColor::Green,
-                CircleBaseSize::Medium
-            ),
+            buttonSprite,
             this,
             menu_selector(ALCompleteMenuLayer::onALComplete)
         );
